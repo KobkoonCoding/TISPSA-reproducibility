@@ -1,0 +1,36 @@
+select TISPSA mu=0.5 rho=0.1 eps=10^0/(n+1)^1.1: deblur 16, WDBC 7.88
+select TISPSA mu=0.5 rho=0.1 eps=10^0/(n+1)^1.5: deblur 18, WDBC 7.88
+select TISPSA mu=0.5 rho=0.1 eps=10^1/(n+1)^1.1: deblur 12, WDBC 7.88
+select TISPSA mu=0.5 rho=0.1 eps=10^1/(n+1)^1.5: deblur 12, WDBC 7.88
+select TISPSA mu=0.5 rho=0.1 eps=10^2/(n+1)^1.1: deblur 12, WDBC 7.88
+select TISPSA mu=0.5 rho=0.1 eps=10^2/(n+1)^1.5: deblur 12, WDBC 7.88
+select TISPSA mu=0.5 rho=0.1 eps=10^3/(n+1)^1.1: deblur 12, WDBC 7.88
+select TISPSA mu=0.5 rho=0.1 eps=10^3/(n+1)^1.5: deblur 12, WDBC 7.88
+select TISPSA mu=0.5 rho=0.5 eps=10^0/(n+1)^1.1: deblur 14, WDBC 13.76
+select TISPSA mu=0.5 rho=0.5 eps=10^0/(n+1)^1.5: deblur 16, WDBC 13.56
+select TISPSA mu=0.5 rho=0.5 eps=10^1/(n+1)^1.1: deblur 16, WDBC 13.76
+select TISPSA mu=0.5 rho=0.5 eps=10^1/(n+1)^1.5: deblur 16, WDBC 13.76
+select TISPSA mu=0.5 rho=0.5 eps=10^2/(n+1)^1.1: deblur 16, WDBC 13.76
+select TISPSA mu=0.5 rho=0.5 eps=10^2/(n+1)^1.5: deblur 16, WDBC 13.76
+select TISPSA mu=0.5 rho=0.5 eps=10^3/(n+1)^1.1: deblur 16, WDBC 13.76
+select TISPSA mu=0.5 rho=0.5 eps=10^3/(n+1)^1.5: deblur 16, WDBC 13.76
+select TISPSA mu=0.9 rho=0.1 eps=10^0/(n+1)^1.1: deblur 16, WDBC 14.40
+select TISPSA mu=0.9 rho=0.1 eps=10^0/(n+1)^1.5: deblur 18, WDBC 14.00
+select TISPSA mu=0.9 rho=0.1 eps=10^1/(n+1)^1.1: deblur 16, WDBC 14.40
+select TISPSA mu=0.9 rho=0.1 eps=10^1/(n+1)^1.5: deblur 10, WDBC 14.40
+select TISPSA mu=0.9 rho=0.1 eps=10^2/(n+1)^1.1: deblur 16, WDBC 14.40
+select TISPSA mu=0.9 rho=0.1 eps=10^2/(n+1)^1.5: deblur 16, WDBC 14.40
+select TISPSA mu=0.9 rho=0.1 eps=10^3/(n+1)^1.1: deblur 16, WDBC 14.40
+select TISPSA mu=0.9 rho=0.1 eps=10^3/(n+1)^1.5: deblur 16, WDBC 14.40
+select TISPSA mu=0.9 rho=0.5 eps=10^0/(n+1)^1.1: deblur 14, WDBC 49.68
+select TISPSA mu=0.9 rho=0.5 eps=10^0/(n+1)^1.5: deblur 16, WDBC 22.44
+select TISPSA mu=0.9 rho=0.5 eps=10^1/(n+1)^1.1: deblur 48, WDBC 106.28
+select TISPSA mu=0.9 rho=0.5 eps=10^1/(n+1)^1.5: deblur 20, WDBC 63.52
+select TISPSA mu=0.9 rho=0.5 eps=10^2/(n+1)^1.1: deblur None, WDBC 598.20
+select TISPSA mu=0.9 rho=0.5 eps=10^2/(n+1)^1.5: deblur 104, WDBC 130.12
+select TISPSA mu=0.9 rho=0.5 eps=10^3/(n+1)^1.1: deblur None, WDBC 1001.00
+select TISPSA mu=0.9 rho=0.5 eps=10^3/(n+1)^1.5: deblur None, WDBC 545.44
+select Bot lambda_n=0.4: deblur 65, WDBC 48.38
+select Bot lambda_n=1.0: deblur 22, WDBC 18.22
+select Bot lambda_n=1.4: deblur 17, WDBC 12.50
+select: smallest TISPSA score 19.88 | setting (34) 19.88 | Bot lambda_n ranked [1.4, 1.0, 0.4]

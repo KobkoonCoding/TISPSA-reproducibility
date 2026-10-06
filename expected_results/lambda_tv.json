@@ -1,0 +1,32 @@
+{
+ "std_Fundus": {
+  "lambda_tv": 0.004,
+  "psnr_conv": 36.743676290867015,
+  "ssim_conv": 0.9171132052864484
+ },
+ "std_CT": {
+  "lambda_tv": 0.001,
+  "psnr_conv": 26.899219747977238,
+  "ssim_conv": 0.6981827707168387
+ },
+ "std_MRI": {
+  "lambda_tv": 0.001,
+  "psnr_conv": 28.71148303594088,
+  "ssim_conv": 0.8716570166292714
+ },
+ "heavy_Fundus": {
+  "lambda_tv": 0.004,
+  "psnr_conv": 29.93410152324514,
+  "ssim_conv": 0.7503418453729191
+ },
+ "heavy_CT": {
+  "lambda_tv": 0.004,
+  "psnr_conv": 22.243279045970667,
+  "ssim_conv": 0.45513497912645773
+ },
+ "heavy_MRI": {
+  "lambda_tv": 0.004,
+  "psnr_conv": 22.566159424001672,
+  "ssim_conv": 0.6990801975941433
+ }
+}

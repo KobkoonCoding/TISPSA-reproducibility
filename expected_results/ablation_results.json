@@ -1,0 +1,78 @@
+{
+ "deblur_heavy": {
+  "Fundus": {
+   "no_inertia": 28,
+   "first_only": 18,
+   "second_only": 26,
+   "proposed": 16
+  },
+  "CT": {
+   "no_inertia": 40,
+   "first_only": 24,
+   "second_only": 36,
+   "proposed": 20
+  },
+  "MRI": {
+   "no_inertia": 22,
+   "first_only": 14,
+   "second_only": 20,
+   "proposed": 12
+  }
+ },
+ "classification": {
+  "WDBC": {
+   "no_inertia": 18.4,
+   "first_only": 9.56,
+   "second_only": 16.44,
+   "proposed": 7.88
+  },
+  "Pima": {
+   "no_inertia": 68.72,
+   "first_only": 38.88,
+   "second_only": 62.68,
+   "proposed": 32.16
+  },
+  "Heart": {
+   "no_inertia": 44.2,
+   "first_only": 23.8,
+   "second_only": 40.16,
+   "proposed": 18.24
+  }
+ },
+ "reduction_percent": {
+  "deblur_heavy": {
+   "Fundus": {
+    "first_only": 35.71428571428571,
+    "second_only": 7.14285714285714,
+    "proposed": 42.85714285714286
+   },
+   "CT": {
+    "first_only": 40.0,
+    "second_only": 9.999999999999998,
+    "proposed": 50.0
+   },
+   "MRI": {
+    "first_only": 36.36363636363637,
+    "second_only": 9.090909090909093,
+    "proposed": 45.45454545454546
+   }
+  },
+  "classification": {
+   "WDBC": {
+    "first_only": 48.043478260869556,
+    "second_only": 10.65217391304346,
+    "proposed": 57.17391304347825
+   },
+   "Pima": {
+    "first_only": 43.42258440046566,
+    "second_only": 8.789289871944117,
+    "proposed": 53.20139697322468
+   },
+   "Heart": {
+    "first_only": 46.15384615384615,
+    "second_only": 9.140271493212682,
+    "proposed": 58.733031674208156
+   }
+  }
+ }
+}

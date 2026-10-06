@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper and this software package."
+type: software
+title: "Reproducibility package for: A double inertial S-iteration algorithm with Tikhonov regularization for common fixed points and forward-backward splitting, with applications to medical image deblurring and medical data classification"
+version: 3.4.0
+date-released: 2026-10-06
+license: MIT
+authors:
+  - family-names: "Suantai"
+    given-names: "Suthep"
+    affiliation: "Research Center in Optimization and Computational Intelligence for Big Data Prediction, Department of Mathematics, Faculty of Science, Chiang Mai University, Chiang Mai 50200, Thailand"
+  - family-names: "Janngam"
+    given-names: "Kobkoon"
+    email: "kobkoon.j@cmu.ac.th"
+    affiliation: "Department of Mathematics, Faculty of Science, and Office of Research Administration, Chiang Mai University, Chiang Mai 50200, Thailand"
+keywords:
+  - fixed points of nonexpansive mappings
+  - Tikhonov regularization
+  - inertial methods
+  - S-iteration
+  - forward-backward algorithm
+  - image deblurring
+  - data classification
+preferred-citation:
+  type: article
+  title: "A double inertial S-iteration algorithm with Tikhonov regularization for common fixed points and forward-backward splitting, with applications to medical image deblurring and medical data classification"
+  authors:
+    - family-names: "Suantai"
+      given-names: "Suthep"
+    - family-names: "Janngam"
+      given-names: "Kobkoon"
+  notes: "Submitted to the Journal of Computational and Applied Mathematics."

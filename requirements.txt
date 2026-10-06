@@ -1,0 +1,9 @@
+# Versions used to produce the results in the paper (Python 3.13.5, Windows 11, single CPU thread)
+numpy==2.2.6
+scipy==1.16.2
+scikit-learn==1.8.0
+scikit-image==0.25.2
+pandas==2.3.2
+matplotlib==3.10.6
+Pillow==11.3.0
+threadpoolctl==3.6.0
