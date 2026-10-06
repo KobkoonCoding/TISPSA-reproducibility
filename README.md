@@ -135,4 +135,5 @@ for the clinical datasets); see `data/SOURCES.md`.
 
 ## 6. Citation
 
-Please cite the paper and this package; see `CITATION.cff`.
+Please cite the paper and this package; see `CITATION.cff`. The package is archived on Zenodo,
+https://doi.org/10.5281/zenodo.23185303, and its source is at https://github.com/KobkoonCoding/TISPSA-reproducibility.
