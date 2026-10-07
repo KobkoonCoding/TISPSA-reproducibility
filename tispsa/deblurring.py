@@ -20,7 +20,6 @@ LAMBDA_TV_DEFAULT = {"std_Fundus": 0.004, "std_CT": 0.001, "std_MRI": 0.001,
                      "heavy_Fundus": 0.004, "heavy_CT": 0.004, "heavy_MRI": 0.004}
 beta = lambda n: 1.0 - 1.0 / (10 * (n + 1))
 IMAGES = ["Fundus", "CT", "MRI"]      # the three test images of Section 4.2
-VIS_IMAGES = ["Fundus", "MRI"]        # images reproduced in Figure 1 (licenses CC0 and MIT)
 Q_FROM, Q_MAX = 10, 100               # Figure 2: evaluations shown; the y-range is fitted to evaluations >= Q_FROM
 # methods of Tables 2-3: (algorithm, lambda_n of Bot et al.), evaluations of T per iteration
 METHODS = {"tispsa": ("tispsa", None), "bot1": ("bot", 1.0), "bot14": ("bot", 1.4)}
@@ -125,8 +124,8 @@ def main(outdir):
                 o[m] = {"psnr": P[N_EVAL], "ssim": ssim(st["x"], x),
                         "traj": [P[k] for k in ks], "ssim_traj": [S[k] for k in ks], "gap": [gap[k] for k in ks], "evals_axis": ks,
                         "evals_tol": int(hit[0]) if hit else None, "iters_tol": (int(hit[0]) // EVALS[m]) if hit else None}
-                if dname == "heavy" and iname in VIS_IMAGES: rec[(dname, iname, m)] = st["x"]
-            if dname == "heavy" and iname in VIS_IMAGES: rec[(dname, iname, "blur")] = b
+                if dname == "heavy": rec[(dname, iname, m)] = st["x"]
+            if dname == "heavy": rec[(dname, iname, "blur")] = b
             res[key] = o
             print(f"deblur sigma_blur={lab[dname]} {iname:5s} lam {lam} PSNR_in {o['psnr_in']:.2f} | " +
                   " | ".join(f"{m} {o[m]['psnr']:.2f}/{o[m]['ssim']:.4f} tol {o[m]['evals_tol']}" for m in METHODS) +
@@ -152,8 +151,8 @@ def main(outdir):
                           "gap": o[m]["gap"], "evals_axis": o[m]["evals_axis"]} for m in METHODS}}
                for k, o in res.items() if k.startswith("heavy_")}
     json.dump(figdata, open(os.path.join(outdir, "deblur_figdata.json"), "w"))
-    np.savez_compressed(os.path.join(outdir, "deblur_figimages.npz"), **{f"{im}_{m}": rec[("heavy", im, m)] for im in VIS_IMAGES for m in ("blur", "tispsa", "bot14")})
-    make_figures(outdir, figdata, {(im, m): rec[("heavy", im, m)] for im in VIS_IMAGES for m in ("blur", "tispsa", "bot14")})
+    np.savez_compressed(os.path.join(outdir, "deblur_figimages.npz"), **{f"{im}_{m}": rec[("heavy", im, m)] for im in IMAGES for m in ("blur", "tispsa", "bot1", "bot14")})
+    make_figures(outdir, figdata, {(im, m): rec[("heavy", im, m)] for im in IMAGES for m in ("blur", "tispsa", "bot1", "bot14")})
     return res
 
 
@@ -162,18 +161,17 @@ def make_figures(outdir, figdata, rec):
     and Figure 3 (relative objective gap)."""
     os.makedirs(os.path.join(outdir, "figures"), exist_ok=True)
     # ---- Figure 1: restored images, sigma_blur = 4.0 ----
-    # The CT image (CC BY-NC, see data/SOURCES.md) enters Tables 2-3 and 6 but is not reproduced in the figure.
-    fig, ax = plt.subplots(len(VIS_IMAGES), 4, figsize=(11, 6.2))
-    for i, im in enumerate(VIS_IMAGES):
+    names = {"tispsa": "TISPSA", "bot1": "Boţ et al., $\\lambda_n=1$", "bot14": "Boţ et al., $\\lambda_n=1.4$"}
+    fig, ax = plt.subplots(len(IMAGES), 5, figsize=(14, 11.0))
+    for i, im in enumerate(IMAGES):
         o = figdata[f"heavy_{im}"]; x = load_image(im)
-        panels = [("Original", x), (f"Observed image $b$\nPSNR {o['psnr_in']:.2f} dB", rec[(im, "blur")]),
-                  (f"TISPSA\nPSNR {o['tispsa']['psnr']:.2f} dB\nSSIM {o['tispsa']['ssim']:.4f}", rec[(im, "tispsa")]),
-                  (f"Boţ et al., $\\lambda_n=1.4$\nPSNR {o['bot14']['psnr']:.2f} dB\nSSIM {o['bot14']['ssim']:.4f}", rec[(im, "bot14")])]
+        panels = [("Original", x), (f"Observed image $b$\nPSNR {o['psnr_in']:.2f} dB", rec[(im, "blur")])]
+        panels += [(f"{names[m]}\nPSNR {o[m]['psnr']:.2f} dB\nSSIM {o[m]['ssim']:.4f}", rec[(im, m)]) for m in ("tispsa", "bot1", "bot14")]
         for j, (t, img) in enumerate(panels):
             ax[i, j].imshow(np.clip(img, 0, 1), cmap="gray", vmin=0, vmax=1, interpolation="nearest")
-            ax[i, j].set_title(t, fontsize=17); ax[i, j].axis("off")
-        ax[i, 0].text(-0.06, 0.5, im, transform=ax[i, 0].transAxes, rotation=90, va="center", ha="right", fontsize=20)
-    plt.tight_layout(h_pad=4.0)
+            ax[i, j].set_title(t, fontsize=19); ax[i, j].axis("off")
+        ax[i, 0].text(-0.06, 0.5, im, transform=ax[i, 0].transAxes, rotation=90, va="center", ha="right", fontsize=22)
+    plt.tight_layout(rect=(0, 0, 1, 0.985), h_pad=3.0, w_pad=0.6)
     plt.savefig(os.path.join(outdir, "figures", "fig1_deblur_visual.pdf"), dpi=300, metadata={"CreationDate": None}); plt.close()
     style = {"tispsa": ("b", "-", "TISPSA"), "bot1": ("m", "-.", r"Boţ et al., $\lambda_n=1$"), "bot14": ("r", "--", r"Boţ et al., $\lambda_n=1.4$")}
     # ---- Figure 2: PSNR and SSIM against evaluations of T, sigma_blur = 4.0 ----
@@ -214,7 +212,7 @@ def replot(outdir):
     """Redraw Figures 1-3 from the data saved by main()."""
     figdata = json.load(open(os.path.join(outdir, "deblur_figdata.json")))
     z = np.load(os.path.join(outdir, "deblur_figimages.npz"))
-    make_figures(outdir, figdata, {(im, m): z[f"{im}_{m}"] for im in VIS_IMAGES for m in ("blur", "tispsa", "bot14")})
+    make_figures(outdir, figdata, {(im, m): z[f"{im}_{m}"] for im in IMAGES for m in ("blur", "tispsa", "bot1", "bot14")})
 
 
 if __name__ == "__main__":

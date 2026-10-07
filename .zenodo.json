@@ -1,7 +1,7 @@
 {
   "title": "Reproducibility package for: A double inertial S-iteration algorithm with Tikhonov regularization for common fixed points and forward-backward splitting, with applications to medical image deblurring and medical data classification",
   "upload_type": "software",
-  "version": "3.4.0",
+  "version": "3.5.0",
   "description": "<p>Code and data that reproduce every table and figure and every number quoted in Section 4 of the paper by S. Suantai and K. Janngam, submitted to the Journal of Computational and Applied Mathematics. The package contains Algorithm 1 (TISPSA), the Tikhonov-regularized Krasnosel'skii&ndash;Mann algorithm of Bo&#355; and Meier (2021), the experiments of Sections 4.1&ndash;4.5 (split feasibility problems, medical image deblurring, medical data classification, ablation study, variable step sizes), the data, and the exact outputs used in the paper. Running <code>python run_all.py results</code> and then <code>python verify.py results expected_results</code> checks that the new results agree with the paper.</p><p>The code is released under the MIT license. The data files keep the licenses of their sources (CC0 for the fundus image, MIT for the MRI dataset, CC BY-NC 4.0 / CC BY-NC-SA for the CT image, CC BY 4.0 and public domain for the clinical datasets); see data/SOURCES.md.</p>",
   "creators": [
     {

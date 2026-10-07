@@ -1,4 +1,4 @@
-# Reproducibility package — TISPSA (version 3.4.0)
+# Reproducibility package — TISPSA (version 3.5.0)
 
 Code and data that reproduce **every table and figure** and every number quoted in Section 4 of the paper
 
@@ -136,4 +136,5 @@ for the clinical datasets); see `data/SOURCES.md`.
 ## 6. Citation
 
 Please cite the paper and this package; see `CITATION.cff`. The package is archived on Zenodo,
-https://doi.org/10.5281/zenodo.23185303, and its source is at https://github.com/KobkoonCoding/TISPSA-reproducibility.
+https://doi.org/10.5281/zenodo.23185302 (all versions), and its source is at
+https://github.com/KobkoonCoding/TISPSA-reproducibility.

@@ -2,10 +2,10 @@ cff-version: 1.2.0
 message: "If you use this code, please cite the paper and this software package."
 type: software
 title: "Reproducibility package for: A double inertial S-iteration algorithm with Tikhonov regularization for common fixed points and forward-backward splitting, with applications to medical image deblurring and medical data classification"
-version: 3.4.0
-date-released: 2026-10-06
+version: 3.5.0
+date-released: 2026-10-07
 license: MIT
-doi: 10.5281/zenodo.23185303
+doi: 10.5281/zenodo.23185302
 repository-code: "https://github.com/KobkoonCoding/TISPSA-reproducibility"
 authors:
   - family-names: "Suantai"

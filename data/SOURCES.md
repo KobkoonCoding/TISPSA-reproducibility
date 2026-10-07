@@ -49,8 +49,8 @@ python -m tispsa.data --verify     # from the package root, same check
 
 The CT image is licensed for non-commercial use (CC BY-NC 4.0 for the article, CC BY-NC-SA in the dataset
 metadata): it is redistributed here for non-commercial research use, with attribution, under the same license.
-It is used for the numbers of Tables 2, 3 and 6 and the CT panels of Figures 2 and 3, but it is not reproduced in Figure 1
-of the paper. The package does not store restored CT images.
+It is used for the numbers of Tables 2, 3 and 6 and the CT panels of Figures 1, 2 and 3. The arrays `CT_*` in
+`expected_results/deblur_figimages.npz` are derived from it and carry the same license.
 
 ## Clinical datasets (Section 4.3)
 
