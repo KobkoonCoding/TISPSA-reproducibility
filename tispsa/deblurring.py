@@ -137,11 +137,11 @@ def main(outdir):
                 o = res[f"{d}_{im}"]
                 f.write(f"{im} & {lab[d]} & {o['psnr_in']:.2f} & " + " & ".join(f"{o[m]['psnr']:.2f}" for m in METHODS) + f" & {o['psnr_conv']:.2f} & "
                         + " & ".join(f"{o[m]['ssim']:.4f}" for m in METHODS) + f" & {o['ssim_conv']:.4f} \\\\\n")
-    with open(os.path.join(outdir, "tables", "table3_tolerance.tex"), "w") as f:   # evaluations to the tolerance
+    with open(os.path.join(outdir, "tables", "table3_tolerance.tex"), "w") as f:   # iterations and evaluations to the tolerance
         for d in DEGRADATIONS:
             for im in IMAGES:
                 o = res[f"{d}_{im}"]
-                f.write(f"{im} & {lab[d]} & {fmt(o['tispsa']['iters_tol'])} & " + " & ".join(fmt(o[m]["evals_tol"]) for m in METHODS) + " \\\\\n")
+                f.write(f"{im} & {lab[d]} & " + " & ".join(f"{fmt(o[m]['iters_tol'])} & {fmt(o[m]['evals_tol'])}" for m in METHODS) + " \\\\\n")
     json.dump({k: {kk: ({a: b for a, b in vv.items() if a not in ("traj", "ssim_traj", "gap", "evals_axis")} if isinstance(vv, dict) else vv) for kk, vv in v.items()} for k, v in res.items()},
               open(os.path.join(outdir, "deblur_results.json"), "w"), indent=1)
     # figure data (trajectories, gaps, images for sigma_blur = 4.0) are saved so that the figures can be redrawn

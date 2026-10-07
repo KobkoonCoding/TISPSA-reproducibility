@@ -1,4 +1,4 @@
-# Reproducibility package — TISPSA (version 3.5.0)
+# Reproducibility package — TISPSA (version 3.5.1)
 
 Code and data that reproduce **every table and figure** and every number quoted in Section 4 of the paper
 
@@ -59,7 +59,7 @@ evaluations of the operators, so they do not depend on the machine.
 | Selected λ_TV (Section 4.2) | `tispsa/select_lambda.py` (optional) | `lambda_tv.json` |
 | Selection of the setting (34) and of `λ_n ∈ {1, 1.4}` (Section 4) | `tispsa/select_setting.py` (optional) | `setting_grid.json` |
 | Table 2 (PSNR and SSIM after 40 evaluations of T; reference solution) and its residual quoted in Section 4.2 | `tispsa/deblurring.py` | `tables/table2_deblur.tex`, `deblur_results.json` |
-| Table 3 (evaluations of T needed to reach the stopping criterion (45)) | `tispsa/deblurring.py` | `tables/table3_tolerance.tex`, `deblur_results.json` |
+| Table 3 (iterations and evaluations of T needed to reach the stopping criterion (45)) | `tispsa/deblurring.py` | `tables/table3_tolerance.tex`, `deblur_results.json` |
 | Figure 1 (restored images), Figure 2 (PSNR and SSIM against evaluations of T), Figure 3 (relative objective gap), σ_blur = 4.0 | `tispsa/deblurring.py` | `figures/fig1_deblur_visual.pdf`, `figures/fig2_deblur_quality.pdf`, `figures/fig3_deblur_gap.pdf`, `deblur_figdata.json`, `deblur_figimages.npz` |
 | Table 4 (classification metrics after 50 evaluations, mean ± standard deviation over 50 runs) | `tispsa/classification.py` | `tables/table4_classification.tex`, `classification_results.json`, `classification_per_run.json` |
 | Table 5 (evaluations of T needed to reach the stopping criterion (51), mean and range) and the run-by-run comparisons of Section 4.3 | `tispsa/classification.py` | `tables/table5_tolerance.tex`, `classification_results.json`, `classification_per_run.json` |

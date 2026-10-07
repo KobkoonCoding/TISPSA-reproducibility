@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.5.1
+
+Table 3 (`tables/table3_tolerance.tex`) lists the iterations and the evaluations of T for all three methods. The
+numbers are unchanged.
+
 ## 3.5.0
 
 Figure 1 shows all three test images (fundus, CT and MRI) and the images restored by all three methods (TISPSA and
