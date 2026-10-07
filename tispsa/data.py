@@ -12,9 +12,10 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(os.path.dirname(HERE), "data")
 
 IMAGES = {   # name: (raw file, source URL)
-    "CT":    ("ct_raw.jpg",   "https://raw.githubusercontent.com/ieee8023/covid-chestxray-dataset/master/images/jkms-35-e79-g001-l-d.jpg"),
+    "CT":    ("ct_raw.jpg",   "https://upload.wikimedia.org/wikipedia/commons/3/35/High-resolution_computed_tomograph_of_a_normal_thorax%2C_axial_plane_%2838%29.jpg"),
     "MRI":   ("mri_raw.jpg",  "https://raw.githubusercontent.com/sartajbhuvaji/brain-tumor-classification-dataset/master/Testing/no_tumor/image(2).jpg"),
 }
+USER_AGENT = "TISPSA-reproducibility (https://github.com/KobkoonCoding/TISPSA-reproducibility)"   # required by Wikimedia
 TABULAR = {
     "pima-indians-diabetes.csv": "https://raw.githubusercontent.com/jbrownlee/Datasets/master/pima-indians-diabetes.data.csv",
     "processed.cleveland.data":  "https://archive.ics.uci.edu/ml/machine-learning-databases/heart-disease/processed.cleveland.data",
@@ -50,11 +51,17 @@ def sha256(path):
     return h.hexdigest()
 
 
-def preprocess_image(raw_path, out_path, size=256):
-    """Grayscale, center square crop, resize to size x size (Lanczos), save PNG."""
+# 780x780 window around the thorax that leaves out the text and the scout image of the CT screenshot
+# (left, upper, right, lower)
+CROPS = {"CT": (370, 140, 1150, 920)}
+
+
+def preprocess_image(raw_path, out_path, size=256, crop=None):
+    """Grayscale, crop (the given box, or the center square), resize to size x size (Lanczos), save PNG."""
     im = Image.open(raw_path).convert("L")
     w, h = im.size; s = min(w, h)
-    im = im.crop(((w - s) // 2, (h - s) // 2, (w - s) // 2 + s, (h - s) // 2 + s)).resize((size, size), Image.LANCZOS)
+    box = crop or ((w - s) // 2, (h - s) // 2, (w - s) // 2 + s, (h - s) // 2 + s)
+    im = im.crop(box).resize((size, size), Image.LANCZOS)
     im.save(out_path)
 
 
@@ -112,9 +119,11 @@ def download_all(verify=True):
     sums = read_sums()
     for name, (fname, url) in IMAGES.items():
         dst = os.path.join(DATA, "images", "raw", fname)
-        urllib.request.urlretrieve(url, dst)
+        req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+        with urllib.request.urlopen(req) as r, open(dst, "wb") as f:
+            f.write(r.read())
         print(f"downloaded {fname}", "OK" if (not verify or sha256(dst) == sums[f"images/raw/{fname}"]) else "HASH MISMATCH")
-        preprocess_image(dst, os.path.join(DATA, "images", f"{name.lower().replace('-', '')}.png"))
+        preprocess_image(dst, os.path.join(DATA, "images", f"{name.lower().replace('-', '')}.png"), crop=CROPS.get(name))
     make_fundus(os.path.join(DATA, "images", "fundus.png"))
     for fname, url in TABULAR.items():
         dst = os.path.join(DATA, "tabular", fname)

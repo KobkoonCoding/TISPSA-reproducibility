@@ -97,12 +97,14 @@ def main(outdir):
     # Table 4 reports mean $\pm$ sample standard deviation (ddof = 1) over the SEEDS x FOLDS = 50 runs after N_EVAL
     # evaluations of T; accuracy is a percentage, so its standard deviation is in percentage points.
     with open(os.path.join(outdir, "tables", "table4_classification.tex"), "w") as f:
-        for name in D:
+        for i, name in enumerate(D):
+            if i > 0:
+                f.write("\\noalign{\\vskip 3pt}\n")                  # small space between datasets
             for m in ["tispsa", "bot14"]:
                 g = R[name][m]
                 cells = [f"{100 * np.mean(g['acc']):.2f} $\\pm$ {100 * sd(g['acc']):.2f}"]
                 cells += [f"{np.mean(g[k]):.4f} $\\pm$ {sd(g[k]):.4f}" for k in ["prec", "rec", "f1", "auc"]]
-                f.write(f"{name} & {LABEL[m]} & " + " & ".join(cells) + " \\\\\n")
+                f.write(f"{name if m == 'tispsa' else ''} & {LABEL[m]} & " + " & ".join(cells) + " \\\\\n")
     with open(os.path.join(outdir, "tables", "table5_tolerance.tex"), "w") as f:      # mean evaluations to the tolerance and range
         for name in D:
             cells = []

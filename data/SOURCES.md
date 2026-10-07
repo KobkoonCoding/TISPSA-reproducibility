@@ -2,7 +2,8 @@
 
 All files in this directory are redistributed **unchanged** from public repositories
 (raw files) together with the preprocessed versions produced by `tispsa/data.py`
-(CT and MRI: grayscale, center square crop; fundus: green channel, 700x700 window around the optic disc;
+(CT: grayscale, 780x780 window around the thorax; MRI: grayscale, center square crop; fundus: green channel,
+700x700 window around the optic disc;
 all resized to 256x256 with Lanczos filtering).
 SHA-256 hashes of every file are listed in `SHA256SUMS`; `python -m tispsa.data`
 re-downloads the raw files from the URLs below and verifies them.
@@ -14,7 +15,7 @@ hash can be traced to its origin without leaving that file.
 
 | Original file (in the source repository) | Package file | SHA-256 |
 |---|---|---|
-| `images/jkms-35-e79-g001-l-d.jpg` — `ieee8023/covid-chestxray-dataset` | `images/raw/ct_raw.jpg` -> `images/ct.png` | `645f50bcaa1ec9bdf4b74aae8c9e9e91cb3f39d33870364dbd7cea1c248db7ae` |
+| `File:High-resolution computed tomograph of a normal thorax, axial plane (38).jpg` — Wikimedia Commons | `images/raw/ct_raw.jpg` -> `images/ct.png` | `7d84f4c5491e0efac6f9db5a9e7af4ab621264976d6855f269584c807af4c23a` |
 | `Testing/no_tumor/image(2).jpg` — `sartajbhuvaji/brain-tumor-classification-dataset` | `images/raw/mri_raw.jpg` -> `images/mri.png` | `9cb0bd6ba354991ae933b55af58ca040f3b8db01add876aba09159d7badd3599` |
 | `skimage.data.retina()` (scikit-image, no file downloaded) | `images/fundus.png` | `e9979ece1c00df2e753a34719297a77198d718c2488c9cf2b013f4206f5fa02d` |
 | `pima-indians-diabetes.data.csv` — `jbrownlee/Datasets` | `tabular/pima-indians-diabetes.csv` | `6bfe5d0f379d17a0e0819b996407e3c09bf80febd4287f2ed212190dfff154af` |
@@ -39,18 +40,15 @@ python -m tispsa.data --verify     # from the package root, same check
 | Paper name | Raw file | Source | License | Attribution |
 |---|---|---|---|---|
 | Retinal fundus | none (generated from `skimage.data.retina()`, bundled with scikit-image); preprocessed file `images/fundus.png` = green channel, 700x700 window around the optic disc (box (0,307,700,1007)), resized to 256x256 | Häggström, M. (2014), "Medical gallery of Mikael Häggström 2014", WikiJournal of Medicine 1(2):8, doi:10.15347/wjm/2014.008 (file `Fundus_photograph_of_normal_left_eye.jpg` on Wikimedia Commons) | CC0 1.0 (public domain dedication) | Mikael Häggström |
-| Chest CT (axial) | `images/raw/ct_raw.jpg` | COVID-19 Image Data Collection [1], file `images/jkms-35-e79-g001-l-d.jpg` (Figure 1D of J. Korean Med. Sci. 35(6):e79, 2020, doi:10.3346/jkms.2020.35.e79) | CC BY-NC 4.0 (article, Crossref record of doi:10.3346/jkms.2020.35.e79); CC BY-NC-SA (as recorded in `metadata.csv`) | Lim et al. (2020), J. Korean Med. Sci. 35(6):e79 |
-| Brain MRI (axial) | `images/raw/mri_raw.jpg` | Brain Tumor Classification (MRI) dataset [2], file `Testing/no_tumor/image(2).jpg` (GitHub mirror of the Kaggle dataset) | MIT (Kaggle dataset page and API, version 3, checked 3 October 2026) | Bhuvaji et al. (2020) |
+| Chest CT (axial) | `images/raw/ct_raw.jpg`; preprocessed file `images/ct.png` = grayscale, 780x780 window (370,140,1150,920) that leaves out the text and the scout image of the screenshot, resized to 256x256 | Häggström, M. (2017), "High-resolution computed tomograph of a normal thorax, axial plane (38)", Wikimedia Commons, https://commons.wikimedia.org/wiki/File:High-resolution_computed_tomograph_of_a_normal_thorax,_axial_plane_(38).jpg (own work; slice 38 of a high-resolution chest CT of a 37-year-old man, 2017-05-20; SHA-1 9faed60d48cd302d37a60aff0051733dd59949a8 as recorded by Commons) | CC0 1.0 (public domain dedication) | Mikael Häggström |
+| Brain MRI (axial) | `images/raw/mri_raw.jpg` | Brain Tumor Classification (MRI) dataset [1], file `Testing/no_tumor/image(2).jpg` (GitHub mirror of the Kaggle dataset) | MIT (Kaggle dataset page and API, version 3, checked 3 October 2026) | Bhuvaji et al. (2020) |
 
-[1] J. P. Cohen, P. Morrison, L. Dao, COVID-19 image data collection, arXiv:2003.11597 (2020).
-    https://github.com/ieee8023/covid-chestxray-dataset
-[2] S. Bhuvaji, A. Kadam, P. Bhumkar, S. Dedge, S. Kanchan, Brain Tumor Classification (MRI), Kaggle (2020).
+[1] S. Bhuvaji, A. Kadam, P. Bhumkar, S. Dedge, S. Kanchan, Brain Tumor Classification (MRI), Kaggle (2020).
     doi:10.34740/KAGGLE/DSV/1183165 ; https://github.com/sartajbhuvaji/brain-tumor-classification-dataset
 
-The CT image is licensed for non-commercial use (CC BY-NC 4.0 for the article, CC BY-NC-SA in the dataset
-metadata): it is redistributed here for non-commercial research use, with attribution, under the same license.
-It is used for the numbers of Tables 2, 3 and 6 and the CT panels of Figures 1, 2 and 3. The arrays `CT_*` in
-`expected_results/deblur_figimages.npz` are derived from it and carry the same license.
+All three images can be reused without permission: the fundus and CT images are dedicated to the public domain
+(CC0) and the MRI image is under the MIT license. The CT image replaces, from version 3.6.0 on, the CT image of the
+COVID-19 Image Data Collection used in earlier versions, which was licensed for non-commercial use only.
 
 ## Clinical datasets (Section 4.3)
 

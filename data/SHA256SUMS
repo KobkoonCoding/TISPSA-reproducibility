@@ -10,9 +10,9 @@
 # SOURCES.md.  Lines starting with '#' are ignored by sha256sum -c and by tispsa/data.py.
 #
 # --- raw files, redistributed unchanged from their public repositories ---------------
-# original: images/jkms-35-e79-g001-l-d.jpg   (covid-chestxray-dataset)   chest CT (axial)
-# url:      https://raw.githubusercontent.com/ieee8023/covid-chestxray-dataset/master/images/jkms-35-e79-g001-l-d.jpg
-645f50bcaa1ec9bdf4b74aae8c9e9e91cb3f39d33870364dbd7cea1c248db7ae  images/raw/ct_raw.jpg
+# original: File:High-resolution computed tomograph of a normal thorax, axial plane (38).jpg   (Wikimedia Commons, CC0)   chest CT (axial)
+# url:      https://upload.wikimedia.org/wikipedia/commons/3/35/High-resolution_computed_tomograph_of_a_normal_thorax%2C_axial_plane_%2838%29.jpg
+7d84f4c5491e0efac6f9db5a9e7af4ab621264976d6855f269584c807af4c23a  images/raw/ct_raw.jpg
 #
 # original: Testing/no_tumor/image(2).jpg   (brain-tumor-classification-dataset)   brain MRI (axial)
 # url:      https://raw.githubusercontent.com/sartajbhuvaji/brain-tumor-classification-dataset/master/Testing/no_tumor/image(2).jpg
@@ -27,12 +27,12 @@
 a74b7efa387bc9d108d7d0115d831fe9b414b29ae7124f331b622b4efa0427c8  tabular/processed.cleveland.data
 #
 # --- preprocessed images used by the experiments -------------------------------------
-# tispsa/data.py: grayscale, center square crop, resize to 256x256 with a Lanczos filter
+# tispsa/data.py: grayscale, crop, resize to 256x256 with a Lanczos filter
 #
-# derived from: images/raw/ct_raw.jpg
-da4cad9592e5b19ab10e1f0ad87746c2646cb453c9f9c051c227f51282e9f15e  images/ct.png
+# derived from: images/raw/ct_raw.jpg -- 780x780 crop (370,140,1150,920)
+052963c72eaa4a6732f6d4073c6e8a21e2183132e5ab6405cdffd1d8c4ab6817  images/ct.png
 #
-# derived from: images/raw/mri_raw.jpg
+# derived from: images/raw/mri_raw.jpg -- center square crop
 f10030bb5e709579f8fa55169791d622549944c835f7f6634ef0961e593a6e41  images/mri.png
 #
 # derived from: skimage.data.retina() (bundled with scikit-image; Haggstrom 2014, CC0) --

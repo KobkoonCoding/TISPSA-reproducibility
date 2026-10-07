@@ -1,5 +1,12 @@
 # Changelog
 
+## 3.6.0
+
+* The CT test image of Section 4.2 is now an axial chest CT slice by Mikael Häggström (Wikimedia Commons, CC0),
+  so that every image of the package and of the paper can be reused without permission. All CT results (Tables 2,
+  3 and 6, Figures 1-3, the selected λ_TV) were recomputed.
+* Table 1 lists TISPSA first in each problem; Table 4 gives each dataset name once.
+
 ## 3.5.1
 
 Table 3 (`tables/table3_tolerance.tex`) lists the iterations and the evaluations of T for all three methods. The

@@ -13,16 +13,16 @@ SFP (P1) iterations on the boundary of C: {'t^2/10|t^2/10': {'bot0': 7, 'bot1': 
 SFP totals (iterations): {'P1': {'bot1': 239, 'bot14': 255, 'tispsa': 137}, 'P2': {'bot1': 114, 'bot14': 130, 'tispsa': 82}} 
 SFP mean ||u|| at 150 evaluations: {'P1': {'bot0': 218.32432563161035, 'bot1': 1.0469801755127286, 'bot14': 1.046557056126015, 'tispsa': 0.5718463911976968}, 'P2': {'bot0': 215.9552872836155, 'bot1': 1.0469765055174929, 'bot14': 1.0465771834259445, 'tispsa': 0.5912992450119318}} 
 TISPSA has the smallest norm at that budget in {'P1': 9, 'P2': 9} of the nine pairs
---- done in 3 s
+--- done in 2 s
 
 === Section 4.2: Tables 2-3, Figures 1-3 ===
 deblur sigma_blur=1.5 Fundus lam 0.004 PSNR_in 31.66 | tispsa 36.87/0.9177 tol 12 | bot1 36.96/0.9184 tol 22 | bot14 36.93/0.9181 tol 17 | ref 36.74/0.9171 res 3.7e-06
-deblur sigma_blur=1.5 CT    lam 0.001 PSNR_in 23.83 | tispsa 26.74/0.6946 tol 32 | bot1 26.39/0.6872 tol 64 | bot14 26.58/0.6916 tol 47 | ref 26.90/0.6982 res 2.5e-04
+deblur sigma_blur=1.5 CT    lam 0.002 PSNR_in 25.40 | tispsa 31.34/0.8544 tol 28 | bot1 30.59/0.8495 tol 58 | bot14 31.04/0.8525 tol 42 | ref 30.93/0.8531 res 1.4e-04
 deblur sigma_blur=1.5 MRI   lam 0.001 PSNR_in 25.21 | tispsa 28.80/0.8741 tol 30 | bot1 28.53/0.8725 tol 58 | bot14 28.70/0.8730 tol 42 | ref 28.71/0.8717 res 2.0e-04
 deblur sigma_blur=4.0 Fundus lam 0.004 PSNR_in 24.78 | tispsa 29.79/0.7484 tol 16 | bot1 29.51/0.7422 tol 28 | bot14 29.68/0.7456 tol 20 | ref 29.93/0.7503 res 8.2e-05
-deblur sigma_blur=4.0 CT    lam 0.004 PSNR_in 19.63 | tispsa 21.85/0.4385 tol 20 | bot1 21.63/0.4296 tol 39 | bot14 21.74/0.4340 tol 29 | ref 22.24/0.4551 res 3.7e-04
+deblur sigma_blur=4.0 CT    lam 0.004 PSNR_in 19.47 | tispsa 23.38/0.6309 tol 36 | bot1 22.82/0.6139 tol 64 | bot14 23.15/0.6237 tol 46 | ref 24.66/0.6665 res 4.1e-04
 deblur sigma_blur=4.0 MRI   lam 0.004 PSNR_in 20.96 | tispsa 22.54/0.6989 tol 12 | bot1 22.49/0.6977 tol 21 | bot14 22.52/0.6987 tol 16 | ref 22.57/0.6991 res 2.1e-04
---- done in 344 s
+--- done in 329 s
 
 === Section 4.3: Tables 4-5 ===
 clf WDBC  tispsa  acc 0.9765+-0.0190 prec 0.9797+-0.0263 rec 0.9578+-0.0466 f1 0.9678+-0.0267 auc 0.9943+-0.0105 evals_tol 7.9
@@ -42,26 +42,26 @@ ablation deblur heavy Fundus no_inertia   evaluations 28
 ablation deblur heavy Fundus first_only   evaluations 18
 ablation deblur heavy Fundus second_only  evaluations 26
 ablation deblur heavy Fundus proposed     evaluations 16
-ablation deblur heavy CT     no_inertia   evaluations 40
-ablation deblur heavy CT     first_only   evaluations 24
-ablation deblur heavy CT     second_only  evaluations 36
-ablation deblur heavy CT     proposed     evaluations 20
+ablation deblur heavy CT     no_inertia   evaluations 66
+ablation deblur heavy CT     first_only   evaluations 42
+ablation deblur heavy CT     second_only  evaluations 60
+ablation deblur heavy CT     proposed     evaluations 36
 ablation deblur heavy MRI    no_inertia   evaluations 22
 ablation deblur heavy MRI    first_only   evaluations 14
 ablation deblur heavy MRI    second_only  evaluations 20
 ablation deblur heavy MRI    proposed     evaluations 12
-ablation: deblurring done (184s)
+ablation: deblurring done (188s)
 ablation classification WDBC  no_inertia 18.4 first_only 9.6 second_only 16.4 proposed 7.9
 ablation classification Pima  no_inertia 68.7 first_only 38.9 second_only 62.7 proposed 32.2
 ablation classification Heart no_inertia 44.2 first_only 23.8 second_only 40.2 proposed 18.2
-ablation: classification done (186s)
-reduction deblur_heavy   proposed     42.9% - 50.0%
-reduction deblur_heavy   first_only   35.7% - 40.0%
-reduction deblur_heavy   second_only  7.1% - 10.0%
+ablation: classification done (191s)
+reduction deblur_heavy   proposed     42.9% - 45.5%
+reduction deblur_heavy   first_only   35.7% - 36.4%
+reduction deblur_heavy   second_only  7.1% - 9.1%
 reduction classification proposed     53.2% - 58.7%
 reduction classification first_only   43.4% - 48.0%
 reduction classification second_only  8.8% - 10.7%
---- done in 186 s
+--- done in 191 s
 
 === Section 4.5: Table 7 (variable step sizes) ===
 Exact variable-step: WDBC, 50 paired runs

@@ -1,4 +1,4 @@
-# Reproducibility package — TISPSA (version 3.5.1)
+# Reproducibility package — TISPSA (version 3.6.0)
 
 Code and data that reproduce **every table and figure** and every number quoted in Section 4 of the paper
 
@@ -130,7 +130,7 @@ rebuilds the preprocessed images; the rebuilt images have the same pixels as the
 differ, so the hash check applies to the bundled files.
 
 The code is released under the MIT license (`LICENSE`). The data files keep the licenses of their sources (CC0 for
-the fundus image, MIT for the MRI dataset, CC BY-NC 4.0 / CC BY-NC-SA for the CT image, CC BY 4.0 and public domain
+the fundus image, MIT for the MRI dataset, CC0 for the CT image, CC BY 4.0 and public domain
 for the clinical datasets); see `data/SOURCES.md`.
 
 ## 6. Citation

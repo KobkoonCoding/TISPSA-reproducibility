@@ -5,9 +5,9 @@
   "ssim_conv": 0.9171132052864484
  },
  "std_CT": {
-  "lambda_tv": 0.001,
-  "psnr_conv": 26.899219747977238,
-  "ssim_conv": 0.6981827707168387
+  "lambda_tv": 0.002,
+  "psnr_conv": 30.93106816590829,
+  "ssim_conv": 0.8530673607656155
  },
  "std_MRI": {
   "lambda_tv": 0.001,
@@ -21,8 +21,8 @@
  },
  "heavy_CT": {
   "lambda_tv": 0.004,
-  "psnr_conv": 22.243279045970667,
-  "ssim_conv": 0.45513497912645773
+  "psnr_conv": 24.656847423829387,
+  "ssim_conv": 0.6665121433894167
  },
  "heavy_MRI": {
   "lambda_tv": 0.004,

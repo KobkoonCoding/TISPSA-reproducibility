@@ -7,10 +7,10 @@
    "proposed": 16
   },
   "CT": {
-   "no_inertia": 40,
-   "first_only": 24,
-   "second_only": 36,
-   "proposed": 20
+   "no_inertia": 66,
+   "first_only": 42,
+   "second_only": 60,
+   "proposed": 36
   },
   "MRI": {
    "no_inertia": 22,
@@ -47,9 +47,9 @@
     "proposed": 42.85714285714286
    },
    "CT": {
-    "first_only": 40.0,
-    "second_only": 9.999999999999998,
-    "proposed": 50.0
+    "first_only": 36.36363636363637,
+    "second_only": 9.090909090909093,
+    "proposed": 45.45454545454546
    },
    "MRI": {
     "first_only": 36.36363636363637,

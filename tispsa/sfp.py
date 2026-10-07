@@ -126,7 +126,7 @@ def main(outdir):
                   f" | ||u|| at budget P1 b=1/TISPSA {r['P1']['bot0_normB']:.2f}/{r['P1']['tispsa_normB']:.3f}", flush=True)
     with open(os.path.join(outdir, "tables", "table1_sfp.tex"), "w") as f:
         for a, c, r in rows:
-            cells = [fmt(r[m][k]) for m in ("P1", "P2") for k in METHODS]
+            cells = [fmt(r[m][k]) for m in ("P1", "P2") for k in ("tispsa", "bot1", "bot14", "bot0")]
             f.write(f"{TEX[a]} & {TEX[c]} & " + " & ".join(cells) + " \\\\\n")
     # totals over the nine pairs quoted in Section 4.1 (the column beta_n = 1 has no total: ">150" is not a count)
     tot = {m: {k: sum(r[m][k] for _, _, r in rows) for k in METHODS if k != "bot0"} for m in ("P1", "P2")}

@@ -16,7 +16,7 @@ DEGRADATIONS = {"std": (1.5, 0.015), "heavy": (4.0, 0.04)}             # (sigma_
 # lambda_TV selected per image and value of sigma_blur by tispsa/select_lambda.py
 # (largest PSNR of the minimizer of the TV model on the grid {0.0005,0.001,0.002,0.004,0.008,0.016})
 LAMBDA_TV = None   # filled below from results/lambda_tv.json or the built-in table
-LAMBDA_TV_DEFAULT = {"std_Fundus": 0.004, "std_CT": 0.001, "std_MRI": 0.001,
+LAMBDA_TV_DEFAULT = {"std_Fundus": 0.004, "std_CT": 0.002, "std_MRI": 0.001,
                      "heavy_Fundus": 0.004, "heavy_CT": 0.004, "heavy_MRI": 0.004}
 beta = lambda n: 1.0 - 1.0 / (10 * (n + 1))
 IMAGES = ["Fundus", "CT", "MRI"]      # the three test images of Section 4.2
